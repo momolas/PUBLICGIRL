@@ -18,38 +18,47 @@ struct LaunchView: View {
 	
 	var body: some View {
 		NavigationStack {
-            List {
-                Section {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("PUBLICGIRL")
-                            .font(.largeTitle)
-                            .bold()
+			VStack(spacing: 20) {
+				
+				Spacer()
+				
+				Text("PUBLICGIRL")
+					.font(.largeTitle)
+				
+				Text("Une application pour calculer les dimensions d'une pyramide")
+					.font(.caption)
+				
+				Spacer()
 
-                        Text("Une application pour calculer les dimensions d'une pyramide")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                    .listRowBackground(Color.clear)
-                    .listRowInsets(EdgeInsets())
-                    .padding(.vertical)
+                NavigationLink(value: PyramidType.goldenRatio) {
+                    Label("Pyramide au Nombre d'Or", systemImage: "arrow.triangle.2.circlepath")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.green.opacity(0.1))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
 
-                Section("Calculateurs") {
-                    NavigationLink(value: PyramidType.goldenRatio) {
-                        Label("Pyramide au Nombre d'Or", systemImage: "arrow.triangle.2.circlepath")
-                    }
-
-                    NavigationLink(value: PyramidType.egyptian) {
-                        Label("Pyramide Égyptienne", systemImage: "pyramid")
-                    }
-
-                    NavigationLink(value: PyramidType.nubian) {
-                        Label("Pyramide Nubienne", systemImage: "triangle")
-                    }
+                NavigationLink(value: PyramidType.egyptian) {
+                    Label("Pyramide Égyptienne", systemImage: "pyramid")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.orange.opacity(0.1))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
-            }
-            .navigationTitle("Accueil")
-            .navigationBarHidden(true)
+
+                NavigationLink(value: PyramidType.nubian) {
+                    Label("Pyramide Nubienne", systemImage: "triangle")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue.opacity(0.1))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+				
+				Spacer()
+				Spacer()
+			}
+            .padding()
+			.navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: PyramidType.self) { type in
                 switch type {
                 case .goldenRatio:
