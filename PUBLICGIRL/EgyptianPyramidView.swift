@@ -11,27 +11,66 @@ struct EgyptianPyramidView: View {
     @State private var viewModel = EgyptianViewModel()
 
     var body: some View {
-        Form {
-            Section("Entrées") {
-                TextField("Base", value: $viewModel.base, format: .number)
-                    .keyboardType(.decimalPad)
+        VStack(spacing: 20) {
+            Text("Pyramide Égyptienne")
+                .font(.largeTitle)
+                .bold()
 
-                Button("Calculer") {
-                    viewModel.calculate()
-                }
+            Text("Entrez la base pour calculer")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+
+            Spacer()
+
+            TextField("Base", value: $viewModel.base, format: .number)
+                .padding()
+                .background(Color.secondary.opacity(0.1))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .keyboardType(.decimalPad)
+
+            Button(action: {
+                viewModel.calculate()
+            }) {
+                Label("Calculer", systemImage: "function")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.orange.opacity(0.1))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
             }
 
             if let result = viewModel.result {
-                Section("Résultats") {
-                    LabeledContent("Arrête", value: result.arrete, format: .number.precision(.fractionLength(2)))
-                    LabeledContent("Hauteur", value: result.hauteur, format: .number.precision(.fractionLength(2)))
-                    LabeledContent("Apothème", value: result.apotheme, format: .number.precision(.fractionLength(2)))
-                    LabeledContent("Surface", value: result.surfaceArea, format: .number.precision(.fractionLength(2)))
-                    LabeledContent("Volume", value: result.volume, format: .number.precision(.fractionLength(2)))
+                VStack(spacing: 10) {
+                    Divider()
+
+                    ResultRow(title: "Arrête", value: result.arrete)
+                    ResultRow(title: "Hauteur", value: result.hauteur)
+                    ResultRow(title: "Apothème", value: result.apotheme)
+                    ResultRow(title: "Surface", value: result.surfaceArea)
+                    ResultRow(title: "Volume", value: result.volume)
                 }
+                .padding()
+                .background(Color.secondary.opacity(0.05))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
             }
+
+            Spacer()
         }
-        .navigationTitle("Pyramide Égyptienne")
+        .padding()
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+struct ResultRow: View {
+    let title: String
+    let value: Double
+
+    var body: some View {
+        HStack {
+            Text(title)
+            Spacer()
+            Text(value, format: .number.precision(.fractionLength(2)))
+                .bold()
+        }
     }
 }
 

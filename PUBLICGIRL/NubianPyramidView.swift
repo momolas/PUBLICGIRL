@@ -11,27 +11,66 @@ struct NubianPyramidView: View {
     @State private var viewModel = NubianViewModel()
 
     var body: some View {
-        Form {
-            Section("Entrées") {
-                TextField("Base", value: $viewModel.base, format: .number)
-                    .keyboardType(.decimalPad)
+        VStack(spacing: 20) {
+            Text("Pyramide Nubienne")
+                .font(.largeTitle)
+                .bold()
 
-                Button("Calculer") {
-                    viewModel.calculate()
-                }
+            Text("Entrez la base pour calculer")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+
+            Spacer()
+
+            TextField("Base", value: $viewModel.base, format: .number)
+                .padding()
+                .background(Color.secondary.opacity(0.1))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .keyboardType(.decimalPad)
+
+            Button(action: {
+                viewModel.calculate()
+            }) {
+                Label("Calculer", systemImage: "function")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue.opacity(0.1))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
             }
 
             if let result = viewModel.result {
-                Section("Résultats") {
-                    LabeledContent("Arrête", value: result.arrete, format: .number.precision(.fractionLength(3)))
-                    LabeledContent("Hauteur", value: result.hauteur, format: .number.precision(.fractionLength(3)))
-                    LabeledContent("Apothème", value: result.apotheme, format: .number.precision(.fractionLength(3)))
-                    LabeledContent("Surface", value: result.surfaceArea, format: .number.precision(.fractionLength(3)))
-                    LabeledContent("Volume", value: result.volume, format: .number.precision(.fractionLength(3)))
+                VStack(spacing: 10) {
+                    Divider()
+
+                    ResultRowNubian(title: "Arrête", value: result.arrete)
+                    ResultRowNubian(title: "Hauteur", value: result.hauteur)
+                    ResultRowNubian(title: "Apothème", value: result.apotheme)
+                    ResultRowNubian(title: "Surface", value: result.surfaceArea)
+                    ResultRowNubian(title: "Volume", value: result.volume)
                 }
+                .padding()
+                .background(Color.secondary.opacity(0.05))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
             }
+
+            Spacer()
         }
-        .navigationTitle("Pyramide Nubienne")
+        .padding()
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+struct ResultRowNubian: View {
+    let title: String
+    let value: Double
+
+    var body: some View {
+        HStack {
+            Text(title)
+            Spacer()
+            Text(value, format: .number.precision(.fractionLength(3)))
+                .bold()
+        }
     }
 }
 
