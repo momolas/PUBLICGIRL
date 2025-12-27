@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  GoldenRatioPyramidView.swift
 //  PUBLICGIRL
 //
 //  Created by Mo on 15/11/2022.
@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-struct SwiftUIView: View {
-	
+struct GoldenRatioPyramidView: View {
+
     @State private var base: Double = 0.0
     @State private var height: Double = 0.0
     @State private var result: String = ""
-    
-    let goldenRatio: Double = (1.0 + sqrt(5.0)) / 2 // proportion de la pyramide de Kheops
     
     var body: some View {
         VStack {
@@ -25,7 +23,7 @@ struct SwiftUIView: View {
             
             HStack {
                 Text("Base de la pyramide :")
-                TextField("Base de la pyramide", value: $base, formatter: NumberFormatter())
+                TextField("Base", value: $base, format: .number)
                     .textFieldStyle(.roundedBorder)
                     .keyboardType(.decimalPad)
             }
@@ -33,7 +31,7 @@ struct SwiftUIView: View {
             
             HStack {
                 Text("Hauteur de la pyramide :")
-                TextField("Hauteur de la pyramide", value: $height, formatter: NumberFormatter())
+                TextField("Hauteur", value: $height, format: .number)
                     .textFieldStyle(.roundedBorder)
                     .keyboardType(.decimalPad)
             }
@@ -45,26 +43,21 @@ struct SwiftUIView: View {
             Spacer()
             
             Button("Calculer") {
-                let baseValue = base
-                let heightValue = height
-                let volume = (1/3) * pow(baseValue, 2) * heightValue
-                let baseKheops = heightValue * goldenRatio
+                let calculation = PyramidCalculator.calculateGoldenRatio(base: base, height: height)
                 
-                result = "La base de la pyramide de Kheops avec une hauteur de \(heightValue) est de \(baseKheops), et son volume est de \(volume)"
+                result = "La base de la pyramide de Kheops avec une hauteur de \(height) est de \(calculation.baseKheops), et son volume est de \(calculation.volume)"
             }
             .font(.title3)
-            .fontWeight(.semibold)
+            .bold()
             .padding(.horizontal, 24)
             .padding(.vertical, 10)
             .background(.thinMaterial)
-            .cornerRadius(5)
+            .clipShape(RoundedRectangle(cornerRadius: 5))
         }
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        SwiftUIView()
-            .preferredColorScheme(.dark)
-    }
+#Preview {
+    GoldenRatioPyramidView()
+        .preferredColorScheme(.dark)
 }
