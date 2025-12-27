@@ -7,27 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CDB2E96D29EFA29A00E7A7FB /* SwiftUIView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB2E96C29EFA29A00E7A7FB /* SwiftUIView2.swift */; };
-		CDB2E96F29EFB47E00E7A7FB /* SwiftUIView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB2E96E29EFB47E00E7A7FB /* SwiftUIView3.swift */; };
+		CD29D7182F0004BD004D22E2 /* GoldenRatioPyramidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29D7152F0004BD004D22E2 /* GoldenRatioPyramidView.swift */; };
+		CD29D7192F0004BD004D22E2 /* NubianPyramidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29D7162F0004BD004D22E2 /* NubianPyramidView.swift */; };
+		CD29D71A2F0004BD004D22E2 /* PyramidCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29D7172F0004BD004D22E2 /* PyramidCalculator.swift */; };
+		CD29D71B2F0004BD004D22E2 /* EgyptianPyramidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29D7142F0004BD004D22E2 /* EgyptianPyramidView.swift */; };
+		CD29D7202F0004F4004D22E2 /* GoldenRatioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29D71D2F0004F4004D22E2 /* GoldenRatioViewModel.swift */; };
+		CD29D7212F0004F4004D22E2 /* NubianViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29D71E2F0004F4004D22E2 /* NubianViewModel.swift */; };
+		CD29D7222F0004F4004D22E2 /* EgyptianViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29D71C2F0004F4004D22E2 /* EgyptianViewModel.swift */; };
 		CDC965EC2923438C00E959C0 /* PUBLICGIRLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC965EB2923438C00E959C0 /* PUBLICGIRLApp.swift */; };
 		CDC965EE2923438C00E959C0 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC965ED2923438C00E959C0 /* LaunchView.swift */; };
 		CDC965F02923438E00E959C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC965EF2923438E00E959C0 /* Assets.xcassets */; };
 		CDC965F42923438E00E959C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC965F32923438E00E959C0 /* Preview Assets.xcassets */; };
-		CDC965FB292343F800E959C0 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC965FA292343F800E959C0 /* SwiftUIView.swift */; };
-		CDC965FD292344A300E959C0 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC965FC292344A300E959C0 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CDB2E96C29EFA29A00E7A7FB /* SwiftUIView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView2.swift; sourceTree = "<group>"; };
-		CDB2E96E29EFB47E00E7A7FB /* SwiftUIView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView3.swift; sourceTree = "<group>"; };
+		CD29D7142F0004BD004D22E2 /* EgyptianPyramidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EgyptianPyramidView.swift; sourceTree = "<group>"; };
+		CD29D7152F0004BD004D22E2 /* GoldenRatioPyramidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenRatioPyramidView.swift; sourceTree = "<group>"; };
+		CD29D7162F0004BD004D22E2 /* NubianPyramidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NubianPyramidView.swift; sourceTree = "<group>"; };
+		CD29D7172F0004BD004D22E2 /* PyramidCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PyramidCalculator.swift; sourceTree = "<group>"; };
+		CD29D71C2F0004F4004D22E2 /* EgyptianViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EgyptianViewModel.swift; sourceTree = "<group>"; };
+		CD29D71D2F0004F4004D22E2 /* GoldenRatioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenRatioViewModel.swift; sourceTree = "<group>"; };
+		CD29D71E2F0004F4004D22E2 /* NubianViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NubianViewModel.swift; sourceTree = "<group>"; };
 		CDC965E82923438C00E959C0 /* PUBLICGIRL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PUBLICGIRL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC965EB2923438C00E959C0 /* PUBLICGIRLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUBLICGIRLApp.swift; sourceTree = "<group>"; };
 		CDC965ED2923438C00E959C0 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		CDC965EF2923438E00E959C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDC965F12923438E00E959C0 /* PUBLICGIRL.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PUBLICGIRL.entitlements; sourceTree = "<group>"; };
 		CDC965F32923438E00E959C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CDC965FA292343F800E959C0 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
-		CDC965FC292344A300E959C0 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +47,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD29D71F2F0004F4004D22E2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CD29D71C2F0004F4004D22E2 /* EgyptianViewModel.swift */,
+				CD29D71D2F0004F4004D22E2 /* GoldenRatioViewModel.swift */,
+				CD29D71E2F0004F4004D22E2 /* NubianViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		CDC965DF2923438C00E959C0 = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +76,16 @@
 		CDC965EA2923438C00E959C0 /* PUBLICGIRL */ = {
 			isa = PBXGroup;
 			children = (
+				CD29D71F2F0004F4004D22E2 /* ViewModels */,
+				CD29D7142F0004BD004D22E2 /* EgyptianPyramidView.swift */,
+				CD29D7152F0004BD004D22E2 /* GoldenRatioPyramidView.swift */,
+				CD29D7162F0004BD004D22E2 /* NubianPyramidView.swift */,
+				CD29D7172F0004BD004D22E2 /* PyramidCalculator.swift */,
 				CDC965EB2923438C00E959C0 /* PUBLICGIRLApp.swift */,
 				CDC965ED2923438C00E959C0 /* LaunchView.swift */,
 				CDC965EF2923438E00E959C0 /* Assets.xcassets */,
 				CDC965F12923438E00E959C0 /* PUBLICGIRL.entitlements */,
 				CDC965F22923438E00E959C0 /* Preview Content */,
-				CDC965FA292343F800E959C0 /* SwiftUIView.swift */,
-				CDB2E96C29EFA29A00E7A7FB /* SwiftUIView2.swift */,
-				CDB2E96E29EFB47E00E7A7FB /* SwiftUIView3.swift */,
-				CDC965FC292344A300E959C0 /* File.swift */,
 			);
 			path = PUBLICGIRL;
 			sourceTree = "<group>";
@@ -152,11 +169,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDC965EE2923438C00E959C0 /* LaunchView.swift in Sources */,
-				CDC965FD292344A300E959C0 /* File.swift in Sources */,
-				CDB2E96F29EFB47E00E7A7FB /* SwiftUIView3.swift in Sources */,
-				CDB2E96D29EFA29A00E7A7FB /* SwiftUIView2.swift in Sources */,
+				CD29D7182F0004BD004D22E2 /* GoldenRatioPyramidView.swift in Sources */,
+				CD29D7192F0004BD004D22E2 /* NubianPyramidView.swift in Sources */,
+				CD29D71A2F0004BD004D22E2 /* PyramidCalculator.swift in Sources */,
+				CD29D71B2F0004BD004D22E2 /* EgyptianPyramidView.swift in Sources */,
 				CDC965EC2923438C00E959C0 /* PUBLICGIRLApp.swift in Sources */,
-				CDC965FB292343F800E959C0 /* SwiftUIView.swift in Sources */,
+				CD29D7202F0004F4004D22E2 /* GoldenRatioViewModel.swift in Sources */,
+				CD29D7212F0004F4004D22E2 /* NubianViewModel.swift in Sources */,
+				CD29D7222F0004F4004D22E2 /* EgyptianViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
