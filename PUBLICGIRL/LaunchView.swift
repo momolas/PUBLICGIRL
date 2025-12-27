@@ -24,6 +24,7 @@ struct LaunchView: View {
 				
 				Text("PUBLICGIRL")
 					.font(.largeTitle)
+                    .accessibilityAddTraits(.isHeader)
 				
 				Text("Une application pour calculer les dimensions d'une pyramide")
 					.font(.caption)
@@ -37,6 +38,8 @@ struct LaunchView: View {
                         .background(Color.green.opacity(0.1))
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
+                .accessibilityLabel("Ouvrir le calculateur de pyramide au nombre d'or")
+                .accessibilityHint("Calculez le volume et la base de Khéops")
 
                 NavigationLink(value: PyramidType.egyptian) {
                     Label("Pyramide Égyptienne", systemImage: "pyramid")
@@ -45,6 +48,8 @@ struct LaunchView: View {
                         .background(Color.orange.opacity(0.1))
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
+                .accessibilityLabel("Ouvrir le calculateur de pyramide égyptienne")
+                .accessibilityHint("Calculez l'arête, la hauteur et le volume")
 
                 NavigationLink(value: PyramidType.nubian) {
                     Label("Pyramide Nubienne", systemImage: "triangle")
@@ -53,6 +58,8 @@ struct LaunchView: View {
                         .background(Color.blue.opacity(0.1))
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
+                .accessibilityLabel("Ouvrir le calculateur de pyramide nubienne")
+                .accessibilityHint("Calculez les dimensions spécifiques aux pyramides nubiennes")
 				
 				Spacer()
 				Spacer()

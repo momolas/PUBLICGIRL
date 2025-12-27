@@ -10,11 +10,16 @@ import SwiftUI
 struct EgyptianPyramidView: View {
     @State private var viewModel = EgyptianViewModel()
 
+    var isInputValid: Bool {
+        viewModel.base > 0
+    }
+
     var body: some View {
         VStack(spacing: 20) {
             Text("Pyramide Égyptienne")
                 .font(.largeTitle)
                 .bold()
+                .accessibilityAddTraits(.isHeader)
 
             Text("Entrez la base pour calculer")
                 .font(.caption)
@@ -27,6 +32,9 @@ struct EgyptianPyramidView: View {
                 .background(Color.secondary.opacity(0.1))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .keyboardType(.decimalPad)
+                .dismissKeyboardOnTap()
+                .accessibilityLabel("Base de la pyramide")
+                .accessibilityHint("Entrez la longueur de la base")
 
             Button(action: {
                 viewModel.calculate()
@@ -34,43 +42,35 @@ struct EgyptianPyramidView: View {
                 Label("Calculer", systemImage: "function")
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.orange.opacity(0.1))
+                    .background(isInputValid ? Color.orange.opacity(0.1) : Color.gray.opacity(0.1))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .foregroundStyle(isInputValid ? .primary : .secondary)
             }
+            .disabled(!isInputValid)
+            .accessibilityLabel("Lancer le calcul")
+            .accessibilityHint(isInputValid ? "Calcule les dimensions basées sur vos entrées" : "Veuillez entrer une valeur valide supérieure à 0")
 
             if let result = viewModel.result {
                 VStack(spacing: 10) {
                     Divider()
 
-                    ResultRow(title: "Arrête", value: result.arrete)
-                    ResultRow(title: "Hauteur", value: result.hauteur)
-                    ResultRow(title: "Apothème", value: result.apotheme)
-                    ResultRow(title: "Surface", value: result.surfaceArea)
-                    ResultRow(title: "Volume", value: result.volume)
+                    PyramidResultRow(title: "Arrête", value: result.arrete, precision: 2)
+                    PyramidResultRow(title: "Hauteur", value: result.hauteur, precision: 2)
+                    PyramidResultRow(title: "Apothème", value: result.apotheme, precision: 2)
+                    PyramidResultRow(title: "Surface", value: result.surfaceArea, precision: 2)
+                    PyramidResultRow(title: "Volume", value: result.volume, precision: 2)
                 }
                 .padding()
                 .background(Color.secondary.opacity(0.05))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                .accessibilityElement(children: .contain)
+                .accessibilityLabel("Résultats du calcul")
             }
 
             Spacer()
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-struct ResultRow: View {
-    let title: String
-    let value: Double
-
-    var body: some View {
-        HStack {
-            Text(title)
-            Spacer()
-            Text(value, format: .number.precision(.fractionLength(2)))
-                .bold()
-        }
     }
 }
 

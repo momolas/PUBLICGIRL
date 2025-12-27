@@ -10,11 +10,16 @@ import SwiftUI
 struct NubianPyramidView: View {
     @State private var viewModel = NubianViewModel()
 
+    var isInputValid: Bool {
+        viewModel.base > 0
+    }
+
     var body: some View {
         VStack(spacing: 20) {
             Text("Pyramide Nubienne")
                 .font(.largeTitle)
                 .bold()
+                .accessibilityAddTraits(.isHeader)
 
             Text("Entrez la base pour calculer")
                 .font(.caption)
@@ -27,6 +32,9 @@ struct NubianPyramidView: View {
                 .background(Color.secondary.opacity(0.1))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .keyboardType(.decimalPad)
+                .dismissKeyboardOnTap()
+                .accessibilityLabel("Base de la pyramide")
+                .accessibilityHint("Entrez la longueur de la base")
 
             Button(action: {
                 viewModel.calculate()
@@ -34,43 +42,35 @@ struct NubianPyramidView: View {
                 Label("Calculer", systemImage: "function")
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.blue.opacity(0.1))
+                    .background(isInputValid ? Color.blue.opacity(0.1) : Color.gray.opacity(0.1))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .foregroundStyle(isInputValid ? .primary : .secondary)
             }
+            .disabled(!isInputValid)
+            .accessibilityLabel("Lancer le calcul")
+            .accessibilityHint(isInputValid ? "Calcule les dimensions basées sur vos entrées" : "Veuillez entrer une valeur valide supérieure à 0")
 
             if let result = viewModel.result {
                 VStack(spacing: 10) {
                     Divider()
 
-                    ResultRowNubian(title: "Arrête", value: result.arrete)
-                    ResultRowNubian(title: "Hauteur", value: result.hauteur)
-                    ResultRowNubian(title: "Apothème", value: result.apotheme)
-                    ResultRowNubian(title: "Surface", value: result.surfaceArea)
-                    ResultRowNubian(title: "Volume", value: result.volume)
+                    PyramidResultRow(title: "Arrête", value: result.arrete, precision: 3)
+                    PyramidResultRow(title: "Hauteur", value: result.hauteur, precision: 3)
+                    PyramidResultRow(title: "Apothème", value: result.apotheme, precision: 3)
+                    PyramidResultRow(title: "Surface", value: result.surfaceArea, precision: 3)
+                    PyramidResultRow(title: "Volume", value: result.volume, precision: 3)
                 }
                 .padding()
                 .background(Color.secondary.opacity(0.05))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                .accessibilityElement(children: .contain)
+                .accessibilityLabel("Résultats du calcul")
             }
 
             Spacer()
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-struct ResultRowNubian: View {
-    let title: String
-    let value: Double
-
-    var body: some View {
-        HStack {
-            Text(title)
-            Spacer()
-            Text(value, format: .number.precision(.fractionLength(3)))
-                .bold()
-        }
     }
 }
 
