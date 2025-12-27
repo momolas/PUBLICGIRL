@@ -9,55 +9,36 @@ import SwiftUI
 
 struct GoldenRatioPyramidView: View {
 
-    @State private var base: Double = 0.0
-    @State private var height: Double = 0.0
-    @State private var result: String = ""
-    
+    @State private var viewModel = GoldenRatioViewModel()
+
     var body: some View {
-        VStack {
-            Text("Calcul des dimensions d'une pyramide au nombre d'or")
-                .font(.title)
-                .padding()
-            
-            Spacer()
-            
-            HStack {
-                Text("Base de la pyramide :")
-                TextField("Base", value: $base, format: .number)
-                    .textFieldStyle(.roundedBorder)
+        Form {
+            Section("Entrées") {
+                TextField("Base", value: $viewModel.base, format: .number)
                     .keyboardType(.decimalPad)
-            }
-            .padding()
-            
-            HStack {
-                Text("Hauteur de la pyramide :")
-                TextField("Hauteur", value: $height, format: .number)
-                    .textFieldStyle(.roundedBorder)
+
+                TextField("Hauteur", value: $viewModel.height, format: .number)
                     .keyboardType(.decimalPad)
+
+                Button("Calculer") {
+                    viewModel.calculate()
+                }
             }
-            .padding()
-            
-            Text(result)
-                .padding()
-            
-            Spacer()
-            
-            Button("Calculer") {
-                let calculation = PyramidCalculator.calculateGoldenRatio(base: base, height: height)
-                
-                result = "La base de la pyramide de Kheops avec une hauteur de \(height) est de \(calculation.baseKheops), et son volume est de \(calculation.volume)"
+
+            if let result = viewModel.result {
+                Section("Résultats") {
+                    LabeledContent("Base Kheops", value: result.baseKheops, format: .number.precision(.fractionLength(2)))
+                    LabeledContent("Volume", value: result.volume, format: .number.precision(.fractionLength(2)))
+                }
             }
-            .font(.title3)
-            .bold()
-            .padding(.horizontal, 24)
-            .padding(.vertical, 10)
-            .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 5))
         }
+        .navigationTitle("Nombre d'Or")
     }
 }
 
 #Preview {
-    GoldenRatioPyramidView()
-        .preferredColorScheme(.dark)
+    NavigationStack {
+        GoldenRatioPyramidView()
+            .preferredColorScheme(.dark)
+    }
 }

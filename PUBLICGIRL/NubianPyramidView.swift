@@ -8,56 +8,36 @@
 import SwiftUI
 
 struct NubianPyramidView: View {
-    @State private var base: Double = 0.0
-    @State private var result = ""
+    @State private var viewModel = NubianViewModel()
 
     var body: some View {
-        VStack {
-            Text("Calcul des dimensions d'une pyramide nubienne")
-                .font(.title)
-                .padding()
-
-            Spacer()
-
-            HStack {
-                Text("Base de la pyramide :")
-                TextField("Base", value: $base, format: .number)
-                    .textFieldStyle(.roundedBorder)
+        Form {
+            Section("Entrées") {
+                TextField("Base", value: $viewModel.base, format: .number)
                     .keyboardType(.decimalPad)
+
+                Button("Calculer") {
+                    viewModel.calculate()
+                }
             }
-            .padding()
 
-            Text(result)
-                .font(.headline)
-                .padding()
-
-            Spacer()
-
-            Button("Calculer", action: calculate)
-                .font(.title3)
-                .bold()
-                .padding(.horizontal, 24)
-                .padding(.vertical, 10)
-                .background(.thinMaterial)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
+            if let result = viewModel.result {
+                Section("Résultats") {
+                    LabeledContent("Arrête", value: result.arrete, format: .number.precision(.fractionLength(3)))
+                    LabeledContent("Hauteur", value: result.hauteur, format: .number.precision(.fractionLength(3)))
+                    LabeledContent("Apothème", value: result.apotheme, format: .number.precision(.fractionLength(3)))
+                    LabeledContent("Surface", value: result.surfaceArea, format: .number.precision(.fractionLength(3)))
+                    LabeledContent("Volume", value: result.volume, format: .number.precision(.fractionLength(3)))
+                }
+            }
         }
-    }
-
-    func calculate() {
-        let calc = PyramidCalculator.calculateNubian(base: base)
-
-        result = """
-        Dimensions de la pyramide :
-        Arrete : \(calc.arrete.formatted(.number.precision(.fractionLength(3))))
-        Hauteur : \(calc.hauteur.formatted(.number.precision(.fractionLength(3))))
-        Apothème : \(calc.apotheme.formatted(.number.precision(.fractionLength(3))))
-        Surface : \(calc.surfaceArea.formatted(.number.precision(.fractionLength(3))))
-        Volume : \(calc.volume.formatted(.number.precision(.fractionLength(3))))
-        """
+        .navigationTitle("Pyramide Nubienne")
     }
 }
 
 #Preview {
-    NubianPyramidView()
-        .preferredColorScheme(.dark)
+    NavigationStack {
+        NubianPyramidView()
+            .preferredColorScheme(.dark)
+    }
 }
