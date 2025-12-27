@@ -14,6 +14,8 @@
 		CD29D7202F0004F4004D22E2 /* GoldenRatioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29D71D2F0004F4004D22E2 /* GoldenRatioViewModel.swift */; };
 		CD29D7212F0004F4004D22E2 /* NubianViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29D71E2F0004F4004D22E2 /* NubianViewModel.swift */; };
 		CD29D7222F0004F4004D22E2 /* EgyptianViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29D71C2F0004F4004D22E2 /* EgyptianViewModel.swift */; };
+		CD29D7272F0011F1004D22E2 /* KeyboardDismissModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29D7252F0011F1004D22E2 /* KeyboardDismissModifier.swift */; };
+		CD29D72A2F0011FD004D22E2 /* PyramidResultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD29D7282F0011FD004D22E2 /* PyramidResultRow.swift */; };
 		CDC965EC2923438C00E959C0 /* PUBLICGIRLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC965EB2923438C00E959C0 /* PUBLICGIRLApp.swift */; };
 		CDC965EE2923438C00E959C0 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC965ED2923438C00E959C0 /* LaunchView.swift */; };
 		CDC965F02923438E00E959C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC965EF2923438E00E959C0 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		CD29D71C2F0004F4004D22E2 /* EgyptianViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EgyptianViewModel.swift; sourceTree = "<group>"; };
 		CD29D71D2F0004F4004D22E2 /* GoldenRatioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenRatioViewModel.swift; sourceTree = "<group>"; };
 		CD29D71E2F0004F4004D22E2 /* NubianViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NubianViewModel.swift; sourceTree = "<group>"; };
+		CD29D7252F0011F1004D22E2 /* KeyboardDismissModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissModifier.swift; sourceTree = "<group>"; };
+		CD29D7282F0011FD004D22E2 /* PyramidResultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PyramidResultRow.swift; sourceTree = "<group>"; };
 		CDC965E82923438C00E959C0 /* PUBLICGIRL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PUBLICGIRL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC965EB2923438C00E959C0 /* PUBLICGIRLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUBLICGIRLApp.swift; sourceTree = "<group>"; };
 		CDC965ED2923438C00E959C0 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -57,6 +61,33 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		CD29D7262F0011F1004D22E2 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				CD29D7252F0011F1004D22E2 /* KeyboardDismissModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		CD29D7292F0011FD004D22E2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CD29D7282F0011FD004D22E2 /* PyramidResultRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CD29D72B2F00125B004D22E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD29D7142F0004BD004D22E2 /* EgyptianPyramidView.swift */,
+				CD29D7152F0004BD004D22E2 /* GoldenRatioPyramidView.swift */,
+				CD29D7162F0004BD004D22E2 /* NubianPyramidView.swift */,
+				CDC965ED2923438C00E959C0 /* LaunchView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CDC965DF2923438C00E959C0 = {
 			isa = PBXGroup;
 			children = (
@@ -76,13 +107,12 @@
 		CDC965EA2923438C00E959C0 /* PUBLICGIRL */ = {
 			isa = PBXGroup;
 			children = (
+				CD29D7292F0011FD004D22E2 /* Components */,
+				CD29D7262F0011F1004D22E2 /* Modifiers */,
 				CD29D71F2F0004F4004D22E2 /* ViewModels */,
-				CD29D7142F0004BD004D22E2 /* EgyptianPyramidView.swift */,
-				CD29D7152F0004BD004D22E2 /* GoldenRatioPyramidView.swift */,
-				CD29D7162F0004BD004D22E2 /* NubianPyramidView.swift */,
+				CD29D72B2F00125B004D22E2 /* Views */,
 				CD29D7172F0004BD004D22E2 /* PyramidCalculator.swift */,
 				CDC965EB2923438C00E959C0 /* PUBLICGIRLApp.swift */,
-				CDC965ED2923438C00E959C0 /* LaunchView.swift */,
 				CDC965EF2923438E00E959C0 /* Assets.xcassets */,
 				CDC965F12923438E00E959C0 /* PUBLICGIRL.entitlements */,
 				CDC965F22923438E00E959C0 /* Preview Content */,
@@ -169,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDC965EE2923438C00E959C0 /* LaunchView.swift in Sources */,
+				CD29D7272F0011F1004D22E2 /* KeyboardDismissModifier.swift in Sources */,
 				CD29D7182F0004BD004D22E2 /* GoldenRatioPyramidView.swift in Sources */,
 				CD29D7192F0004BD004D22E2 /* NubianPyramidView.swift in Sources */,
 				CD29D71A2F0004BD004D22E2 /* PyramidCalculator.swift in Sources */,
@@ -176,6 +207,7 @@
 				CDC965EC2923438C00E959C0 /* PUBLICGIRLApp.swift in Sources */,
 				CD29D7202F0004F4004D22E2 /* GoldenRatioViewModel.swift in Sources */,
 				CD29D7212F0004F4004D22E2 /* NubianViewModel.swift in Sources */,
+				CD29D72A2F0011FD004D22E2 /* PyramidResultRow.swift in Sources */,
 				CD29D7222F0004F4004D22E2 /* EgyptianViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
